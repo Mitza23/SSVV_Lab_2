@@ -1,0 +1,7 @@
+ID : any String != null || "" (StringUtils.isNotEmpty())
+    => EC = ["", null], [".+"]
+
+Nume :  any String != null || "" (StringUtils.isNotEmpty())
+=> EC = ["", null], [".+"]
+
+Grupa : 110 < grupa < 938 => EC = [-2147483648, 110] [111, 937] [938, 2147483647]
