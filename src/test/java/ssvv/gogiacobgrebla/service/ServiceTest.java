@@ -13,6 +13,12 @@ import ssvv.gogiacobgrebla.validation.StudentValidator;
 import ssvv.gogiacobgrebla.validation.TemaValidator;
 import ssvv.gogiacobgrebla.validation.Validator;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static org.junit.Assert.*;
 
 public class ServiceTest {
@@ -36,8 +42,13 @@ public class ServiceTest {
     private int temaStartLin = 2;
 
     @Before
-    public void clearRepository() {
-        fileRepository2.delete("1");
+    public void clearRepository() throws IOException {
+//        fileRepository2.delete("1");
+
+        Path fileToDeletePath = Paths.get("src/main/resources/teme.xml");
+        Files.delete(fileToDeletePath);
+        File yourFile = new File("src/main/resources/teme.xml");
+        yourFile.createNewFile();
     }
 
     @Test
