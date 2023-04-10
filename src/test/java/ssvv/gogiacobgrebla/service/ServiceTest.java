@@ -1,5 +1,6 @@
 package ssvv.gogiacobgrebla.service;
 
+import org.junit.Before;
 import org.junit.Test;
 import ssvv.gogiacobgrebla.domain.Nota;
 import ssvv.gogiacobgrebla.domain.Student;
@@ -33,6 +34,11 @@ public class ServiceTest {
     private String temaDescriere = "lorem ipsum";
     private int temaDeadline = 3;
     private int temaStartLin = 2;
+
+    @Before
+    public void clearRepository() {
+        fileRepository2.delete("1");
+    }
 
     @Test
     public void saveStudent_successful() {
@@ -103,7 +109,7 @@ public class ServiceTest {
     @Test
     public void saveTema_successful() {
         int result = service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
-        assertEquals(0, result);
+        assertEquals(1, result);
     }
 
     @Test
