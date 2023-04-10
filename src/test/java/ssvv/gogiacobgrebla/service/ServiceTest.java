@@ -111,4 +111,29 @@ public class ServiceTest {
         int result = service.saveTema(null, temaDescriere, temaDeadline, temaStartLin);
         assertEquals(1, result);
     }
+
+    @Test
+    public void saveTema_wrong_nullDescriere() {
+        int result = service.saveTema(temaId, null, temaDeadline, temaStartLin);
+        assertEquals(1, result);
+    }
+
+     @Test
+    public void saveTema_wrong_zeroDeadline() {
+        int result = service.saveTema(temaId, temaDescriere, 0, temaStartLin);
+        assertEquals(1, result);
+    }
+
+     @Test
+    public void saveTema_wrong_zeroStartline() {
+        int result = service.saveTema(temaId, temaDescriere, temaDeadline, 0);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void saveTema_success_duplicate() {
+        service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
+        int result = service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
+        assertEquals(0, result);
+    }
 }
