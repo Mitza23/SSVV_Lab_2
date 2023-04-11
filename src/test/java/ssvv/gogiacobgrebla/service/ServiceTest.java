@@ -43,14 +43,8 @@ public class ServiceTest {
 
     @Before
     public void clearRepository() throws IOException {
-//        fileRepository2.delete("1");
-//        fileRepository2.findAll().forEach(tema -> fileRepository2.delete(tema.getID()));
         fileRepository1.delete("9");
         fileRepository2.delete("9");
-//        Path fileToDeletePath = Paths.get("src/main/resources/teme.xml");
-//        Files.delete(fileToDeletePath);
-//        File yourFile = new File("src/main/resources/teme.xml");
-//        yourFile.createNewFile();
     }
 
     @Test
