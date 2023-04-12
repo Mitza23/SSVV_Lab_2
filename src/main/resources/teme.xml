@@ -15,4 +15,9 @@
         <Deadline>9</Deadline>
         <Startline>7</Startline>
     </tema>
+    <tema ID="9">
+        <Descriere>lorem ipsum</Descriere>
+        <Deadline>3</Deadline>
+        <Startline>2</Startline>
+    </tema>
 </Entitati>

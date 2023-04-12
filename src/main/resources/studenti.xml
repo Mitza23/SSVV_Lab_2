@@ -12,4 +12,8 @@
         <Nume>Ion</Nume>
         <Grupa>227</Grupa>
     </student>
+    <student ID="9">
+        <Nume>Florin Albisoru</Nume>
+        <Grupa>933</Grupa>
+    </student>
 </Entitati>
