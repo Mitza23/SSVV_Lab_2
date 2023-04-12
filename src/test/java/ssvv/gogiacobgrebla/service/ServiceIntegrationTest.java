@@ -3,6 +3,7 @@ package ssvv.gogiacobgrebla.service;
 import org.junit.Before;
 import org.junit.Test;
 import ssvv.gogiacobgrebla.domain.Nota;
+import ssvv.gogiacobgrebla.domain.Pair;
 import ssvv.gogiacobgrebla.domain.Student;
 import ssvv.gogiacobgrebla.domain.Tema;
 import ssvv.gogiacobgrebla.repository.NotaXMLRepository;
@@ -52,6 +53,7 @@ public class ServiceIntegrationTest {
     public void clearRepository() throws IOException {
         fileRepository1.delete("9");
         fileRepository2.delete("9");
+        fileRepository3.delete(new Pair<>("9", "9"));
     }
 
     @Test
