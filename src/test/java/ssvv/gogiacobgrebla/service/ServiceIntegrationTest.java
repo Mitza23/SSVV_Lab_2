@@ -71,6 +71,7 @@ public class ServiceIntegrationTest {
 
     @Test
     public void saveNota_successful() {
+        fileRepository3.delete(new Pair<>("4", "1"));
         int result = service.saveNota("4", "1", notaVal, notaPredata, notaFeedback);
         assertEquals(1, result);
     }
