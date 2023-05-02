@@ -76,6 +76,14 @@ public class ServiceIntegrationTest {
         assertEquals(1, result);
     }
 
+        @Test
+    public void integrate_add_nota_student() {
+        int result = service.saveStudent(studentId, studentNume, studentGrupa);
+        assertEquals(1, result);
+        result = service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
+        assertEquals(1, result);
+    }
+
     @Test
     public void integrate_add_nota_student_tema() {
         int result = service.saveStudent(studentId, studentNume, studentGrupa);
@@ -85,5 +93,4 @@ public class ServiceIntegrationTest {
         result = service.saveNota(studentId, temaId, notaVal, notaPredata, notaFeedback);
         assertEquals(1, result);
     }
-
 }

@@ -2,12 +2,11 @@ package ssvv.gogiacobgrebla.service;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import ssvv.gogiacobgrebla.domain.Nota;
 import ssvv.gogiacobgrebla.domain.Student;
 import ssvv.gogiacobgrebla.domain.Tema;
-import ssvv.gogiacobgrebla.repository.NotaXMLRepository;
-import ssvv.gogiacobgrebla.repository.StudentXMLRepository;
-import ssvv.gogiacobgrebla.repository.TemaXMLRepository;
+import ssvv.gogiacobgrebla.repository.*;
 import ssvv.gogiacobgrebla.validation.NotaValidator;
 import ssvv.gogiacobgrebla.validation.StudentValidator;
 import ssvv.gogiacobgrebla.validation.TemaValidator;
@@ -32,6 +31,16 @@ public class ServiceTest {
     NotaXMLRepository fileRepository3 = new NotaXMLRepository(notaValidator, "src/main/resources/note.xml");
 
     Service service = new Service(fileRepository1, fileRepository2, fileRepository3);
+
+    @Mock
+    StudentRepository mockStudentRepository;
+    @Mock
+    NotaRepository mockNotaRepository;
+
+    @Mock
+    TemaRepository mockTemaRepository;
+
+
     private String studentId = "9";
     private String studentNume = "Florin Albisoru";
     private int studentGrupa = 933;
