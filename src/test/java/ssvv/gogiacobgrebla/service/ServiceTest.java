@@ -2,6 +2,7 @@ package ssvv.gogiacobgrebla.service;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.AdditionalAnswers;
 import org.mockito.Mock;
 import ssvv.gogiacobgrebla.domain.Nota;
 import ssvv.gogiacobgrebla.domain.Student;
@@ -19,6 +20,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class ServiceTest {
 
@@ -33,12 +36,12 @@ public class ServiceTest {
     Service service = new Service(fileRepository1, fileRepository2, fileRepository3);
 
     @Mock
-    StudentRepository mockStudentRepository;
+    StudentXMLRepository mockStudentRepository;
     @Mock
-    NotaRepository mockNotaRepository;
+    TemaXMLRepository mockTemaRepository;
+    @Mock
+    NotaXMLRepository mockNotaRepository;
 
-    @Mock
-    TemaRepository mockTemaRepository;
 
 
     private String studentId = "9";
@@ -157,5 +160,11 @@ public class ServiceTest {
         service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
         int result = service.saveTema(temaId, temaDescriere, temaDeadline, temaStartLin);
         assertEquals(0, result);
+    }
+
+    @Test
+    public void saveStudent_success_mock(){
+        when(mockStudentRepository.save(any(Student.class))).then(AdditionalAnswers.returnsFirstArg());
+
     }
 }
