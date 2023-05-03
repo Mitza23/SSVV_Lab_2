@@ -94,6 +94,33 @@ public class Service {
         return 1;
     }
 
+    public Service() {
+    }
+
+    public StudentXMLRepository getStudentXmlRepo() {
+        return studentXmlRepo;
+    }
+
+    public void setStudentXmlRepo(StudentXMLRepository studentXmlRepo) {
+        this.studentXmlRepo = studentXmlRepo;
+    }
+
+    public TemaXMLRepository getTemaXmlRepo() {
+        return temaXmlRepo;
+    }
+
+    public void setTemaXmlRepo(TemaXMLRepository temaXmlRepo) {
+        this.temaXmlRepo = temaXmlRepo;
+    }
+
+    public NotaXMLRepository getNotaXmlRepo() {
+        return notaXmlRepo;
+    }
+
+    public void setNotaXmlRepo(NotaXMLRepository notaXmlRepo) {
+        this.notaXmlRepo = notaXmlRepo;
+    }
+
     public int updateTema(String id, String descriereNoua, int deadlineNou, int startlineNou) {
         Tema temaNoua = new Tema(id, descriereNoua, deadlineNou, startlineNou);
         Tema result = temaXmlRepo.update(temaNoua);

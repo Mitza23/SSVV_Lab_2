@@ -3,6 +3,7 @@ package ssvv.gogiacobgrebla.service;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.AdditionalAnswers;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import ssvv.gogiacobgrebla.domain.Nota;
 import ssvv.gogiacobgrebla.domain.Student;
@@ -35,12 +36,14 @@ public class ServiceTest {
 
     Service service = new Service(fileRepository1, fileRepository2, fileRepository3);
 
-    @Mock
-    StudentXMLRepository mockStudentRepository;
-    @Mock
-    TemaXMLRepository mockTemaRepository;
-    @Mock
-    NotaXMLRepository mockNotaRepository;
+//    @Mock
+    StudentXMLRepository mockStudentRepository = mock(StudentXMLRepository.class);
+//    @Mock
+    TemaXMLRepository mockTemaRepository = mock(TemaXMLRepository.class);
+//    @Mock
+    NotaXMLRepository mockNotaRepository = mock(NotaXMLRepository.class);
+
+    Service mockService = new Service(mockStudentRepository, mockTemaRepository, mockNotaRepository);
 
 
 
@@ -164,7 +167,9 @@ public class ServiceTest {
 
     @Test
     public void saveStudent_success_mock(){
-        when(mockStudentRepository.save(any(Student.class))).then(AdditionalAnswers.returnsFirstArg());
-
+        when(mockStudentRepository.save(any(Student.class))).thenReturn(null);
+//        when(mockStudentRepository.save(any(Student.class))).then(AdditionalAnswers.returnsFirstArg());
+        int result = mockService.saveStudent(studentId, studentNume, studentGrupa);
+        assertEquals(1, result);
     }
 }
